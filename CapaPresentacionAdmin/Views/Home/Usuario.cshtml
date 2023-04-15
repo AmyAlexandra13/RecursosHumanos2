@@ -5,12 +5,12 @@
 }
 <ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="index.html">Resumen</a></li>
-    <li class="breadcrumb-item active">Usuarios</li>
+    <li class="breadcrumb-item active">Empleados</li>
 </ol>
 
 <div class="card">
     <div class="card-header">
-        <i class="fas fa-users me-1"> </i>Lista de Usuarios
+        <i class="fas fa-users me-1"> </i>Lista de Empleados
     </div>
     <div class="card-body">
 
@@ -21,7 +21,7 @@
             
             <div class="col-12">
 
-                <button type="button" class="btn btn-success" onclick="abrirModal(null)">Crear nuevo usuario</button>
+                <button type="button" class="btn btn-success" onclick="abrirModal(null)">Ingresar Empleados</button>
 
             </div>
         </div>
@@ -36,7 +36,7 @@
                     <th> Nombre</th>
                     <th> Apellidos</th>
                     <th> Correo</th>
-                    <th> Activo</th>
+                    <th> Vacaciones</th>
                     <th> Numero de documento</th>
                     <th> Telefono</th>
                     <th> Numero de Cuenta</th>
@@ -61,7 +61,7 @@
     <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title" id="exampleModalLabel">Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Empleado</h5>
                 
                    
 
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <label for="cboactivo" class="form-label">Activo</label>
+                        <label for="cboactivo" class="form-label">Vacaciones</label>
                         <select class="form-select" id="cboactivo">
                             <option selected>Opciones</option>
                             <option value="1">Si</option>
@@ -115,13 +115,6 @@
                         <input type="text" class="form-control" id="txtsalario" autocomplete="off">
                     </div>
 
-
-
-
-
-
-
-
                     <div class="row mt-2">
 
                         <div class="col-sm-12">
@@ -131,9 +124,6 @@
                         </div>
 
                     </div>
-
-
-
 
                 </div>
             </div>
@@ -154,10 +144,6 @@
 
         var tablaData;
         var filaSeleccionada;
-
-
-
-
 
         tablaData = $("#Tabla").DataTable({
 
