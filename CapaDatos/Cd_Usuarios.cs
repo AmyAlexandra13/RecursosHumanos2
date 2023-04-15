@@ -133,7 +133,7 @@ namespace CapaDatos
                 using(SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
 
-                    SqlCommand cmd = new SqlCommand("sp_EditarUsuario2", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_EditarUsuario", oconexion);
                     cmd.Parameters.AddWithValue("IdUsuario", obj.idUsuario);
                     cmd.Parameters.AddWithValue("Nombres", obj.Nombre);
                     cmd.Parameters.AddWithValue("Apellidos", obj.Apellidos);
