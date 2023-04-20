@@ -16,11 +16,11 @@ namespace CapaNegocio
 
         private Cd_Usuarios objCapaDato = new Cd_Usuarios();
         public List<Usuario> Listar() { return objCapaDato.Listar(); }
- 
-        public int Resgistrar(Usuario obj, out string Mensaje){
+
+        public int Resgistrar(Usuario obj, out string Mensaje) {
 
             Mensaje = String.Empty;
-           
+
 
             if (string.IsNullOrEmpty(obj.Nombre) || string.IsNullOrWhiteSpace(obj.Nombre))
             {
@@ -61,7 +61,8 @@ namespace CapaNegocio
             }
 
 
-            if (string.IsNullOrEmpty(Mensaje))  {
+            if (string.IsNullOrEmpty(Mensaje))
+            {
 
                 string Clave = cn_recursos.Generarclave();
 
@@ -73,27 +74,36 @@ namespace CapaNegocio
 
 
                 bool respuesta = cn_recursos.EnviarCorreo(obj.Correo, asunto, mensaje_correo);
+                obj.Clave = cn_recursos.ConvertSha(Clave);
+
+                return objCapaDato.Resgistrar(obj, out Mensaje);
 
 
-                if (respuesta) {
-                
-                        obj.Clave = cn_recursos.ConvertSha(Clave);
+                //if (respuesta)
+                //{
 
-                        return objCapaDato.Resgistrar(obj, out Mensaje);
+                //    obj.Clave = cn_recursos.ConvertSha(Clave);
 
-                } else {
+                //    return objCapaDato.Resgistrar(obj, out Mensaje);
 
+                //}
+                //else
+                //{
 
-                    Mensaje = " No se puede enaviar el correo";
-                    return 0; 
-                
-                }                 
+                //    Mensaje = "No se puede enviar el correo";
+                //    return 0;
+                //}
             }
-            else { 
-                
-                return 0; }
 
 
+            else
+            {
+
+                return 0;
+            }
+        
+
+            
 
         }
 
